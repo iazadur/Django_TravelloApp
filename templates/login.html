@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log-In</title>
+	<style type="text/css">
+	body{font-family: sans-serif;background: #e07373}
+	.container{width:1000px;margin: 0 auto;}
+	.svg{position: absolute;}
+
+.login {
+	height: 500px;
+	width: 400px;
+	background: #c88383;
+	float: left;
+	box-shadow: -7px 10px 0px 0px #D59097;
+	border-radius: 14px;
+	overflow: hidden;
+	right: -109px;
+	position: relative;
+	top: 198px;
+	left: 95px;
+}
+.login td{color: #FAFAFA;}
+input[type="text"],input[type="password"],input[type="email"] {
+	border-style: none;
+	margin: 7px;
+	width: 200px;
+	height: 22px;
+	border-bottom: 1px solid #fff;
+	background: #c88383;
+	font-family: sans-serif;
+}
+input[type="text"],input[type="password"],input[type="email"]:hover{
+	border-bottom:2px solid #341BE1;
+}
+
+.btn button {
+	padding: 7px 35px;
+	background: #dea4c1;
+	border-radius: 6px;
+	border: 1px solid #999;
+	color: #F5F5F5;
+	font-size: 16px;
+	font-family: sans-serif;
+	letter-spacing: 1px;
+}
+.btn button:hover{background:#ce94b1 ;border: 1px solid #dea4c1;color: #341BE1;letter-spacing: 2px;}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div class="svg">
+		<svg height="1000px" width="1300px">
+		  <polygon points="0,0 1000,400 0,1000" style="fill: #CC6B6B;stroke: #AEA5A5;stroke-width: 4;" />
+		</svg>
+	</div>
+<div class="login">
+	<img src="" align="center" style="border-radius: 50px;background: #000;width: 100px">
+	<h4 align="center" style="font-size:20px;color:#fff;font-weight: 700;font-family: sans-serif;letter-spacing: 2px;"> Sign Up </h4><hr>
+	<form action="login" method="post">
+		{% csrf_token %}
+	<table>
+
+		<tr>
+			<td>Username: </td>
+			<td><input type="text" name="username"></td>
+		</tr>
+		<tr>
+			<td>Password: </td>
+			<td><input type="password" name="password"></td>
+		</tr>
+
+		</table>
+		<div align="center" class="btn"><button type="submit">Submit</button></div>
+		{% for message in messages%}
+		<h4 text-color="green">{{message}}</h4>
+		{% endfor %}
+	</form>
+</div>
+</div>
+</body>
+</html>
